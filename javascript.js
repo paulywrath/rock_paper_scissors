@@ -32,32 +32,128 @@ function playRound(playerSelection, computerSelection) {
 //Play a five round game.//
 function game() {
 
+    //1st Round//
     getComputerChoice(); //Computer throws its hand.//
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
+    console.log(computerSelection); //Show what the computer threw.//
     playRound(playerSelection, computerSelection); //See who wins.//
-    
+
+    //Show the round's result to the user.//
+    console.log(playRound(playerSelection, computerSelection)); 
+
+    //Assign round result to variable for following score counter.//
+    roundResult = playRound(playerSelection, computerSelection); 
+        
     //Add to winner's score.//
     if (roundResult.includes('win')) {
-        return playerScore += 1;
+        playerScore += 1;
     } else if (roundResult.includes('lose')) {
-        return computerScore += 1;
+        computerScore += 1;
     }
 
+    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+
+    //2nd Round//
+    getComputerChoice(); //Computer throws its hand.//
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
+    console.log(computerSelection); //Show what the computer threw.//
+    playRound(playerSelection, computerSelection); //See who wins.//
+
+    //Show the round's result to the user.//
+    console.log(playRound(playerSelection, computerSelection)); 
+
+    //Assign round result to variable for following score counter.//
+    roundResult = playRound(playerSelection, computerSelection); 
+        
+    //Add to winner's score.//
+    if (roundResult.includes('win')) {
+        playerScore += 1;
+    } else if (roundResult.includes('lose')) {
+        computerScore += 1;
+    }
+
+    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+
+    //3rd Round//
+    getComputerChoice(); //Computer throws its hand.//
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
+    console.log(computerSelection); //Show what the computer threw.//
+    playRound(playerSelection, computerSelection); //See who wins.//
+
+    //Show the round's result to the user.//
+    console.log(playRound(playerSelection, computerSelection)); 
+
+    //Assign round result to variable for following score counter.//
+    roundResult = playRound(playerSelection, computerSelection); 
+        
+    //Add to winner's score.//
+    if (roundResult.includes('win')) {
+        playerScore += 1;
+    } else if (roundResult.includes('lose')) {
+        computerScore += 1;
+    }
+
+    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+
+    //4th Round//
+    getComputerChoice(); //Computer throws its hand.//
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
+    console.log(computerSelection); //Show what the computer threw.//
+    playRound(playerSelection, computerSelection); //See who wins.//
+
+    //Show the round's result to the user.//
+    console.log(playRound(playerSelection, computerSelection)); 
+
+    //Assign round result to variable for following score counter.//
+    roundResult = playRound(playerSelection, computerSelection); 
+        
+    //Add to winner's score.//
+    if (roundResult.includes('win')) {
+        playerScore += 1;
+    } else if (roundResult.includes('lose')) {
+        computerScore += 1;
+    }
+
+    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+
+    //5th Round//
+    getComputerChoice(); //Computer throws its hand.//
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
+    console.log(computerSelection); //Show what the computer threw.//
+    playRound(playerSelection, computerSelection); //See who wins.//
+
+    //Show the round's result to the user.//
+    console.log(playRound(playerSelection, computerSelection)); 
+
+    //Assign round result to variable for following score counter.//
+    roundResult = playRound(playerSelection, computerSelection); 
+        
+    //Add to winner's score.//
+    if (roundResult.includes('win')) {
+        playerScore += 1;
+    } else if (roundResult.includes('lose')) {
+        computerScore += 1;
+    }
+
+    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+
+    if (playerScore > computerScore) {
+        console.log('Congratulations, you won the game!');
+    } else if (playerScore < computerScore) {
+        console.log('You lost the game. Better luck next time.');
+    } else {
+        console.log('Kiss your sister, it\'s a tie.');
+    }
 }
 
 const playerSelection = 'ROCK'; //Player throws rock.//
 
 //Create variable to go into winner check that accepts computer's throw.//
-let computerSelection = getComputerChoice();
+let computerSelection;
 
-/*Create variable that receives the result of the round 
-and checks the string to pass who won into an operation.*/
-let roundResult = playRound(playerSelection, computerSelection);
+let roundResult; //Create variable that receives the round result.//
 
 let playerScore = 0; //Create variable to hold player's score.//
 let computerScore = 0; //Create variable to hold computer's score.//
 
 game(); //Call the function that plays a multi-round game.//
-console.log(computerSelection); //Show what the computer threw.//
-
-//Show the round's result to the user.//
-console.log(playRound(playerSelection, computerSelection)); 
