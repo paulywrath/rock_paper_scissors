@@ -1,3 +1,15 @@
+let playerSelection; //Create variable to take player's throw.//
+
+//Create variable to go into winner check that accepts computer's throw.//
+let computerSelection;
+
+let roundResult; //Create variable that receives the round result.//
+
+let playerScore = 0; //Create variable to hold player's score.//
+let computerScore = 0; //Create variable to hold computer's score.//
+
+game(); //Call the function that plays a multi-round game.//
+
 //The computer opponent throws “rock,” “paper,” or “scissors” randomly.//
 function getComputerChoice() {
     
@@ -14,8 +26,8 @@ function getComputerChoice() {
 
 //See whose throw wins or if they’re equal.//
 function playRound(playerSelection, computerSelection) {
-    
-    playerSelection.toUpperCase();
+
+    playerSelection = playerSelection.toUpperCase();
 
     if (playerSelection === computerSelection) {
         return `Tie! You both threw ${playerSelection}.`;
@@ -33,6 +45,8 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     //1st Round//
+        //Take player's throw.//
+    playerSelection = prompt('Round 1: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
     getComputerChoice(); //Computer throws its hand.//
     computerSelection = getComputerChoice(); //Assign computer throw to argument.//
     console.log(computerSelection); //Show what the computer threw.//
@@ -54,6 +68,8 @@ function game() {
     console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
 
     //2nd Round//
+        //Take player's throw.//
+    playerSelection = prompt('Round 2: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
     getComputerChoice(); //Computer throws its hand.//
     computerSelection = getComputerChoice(); //Assign computer throw to argument.//
     console.log(computerSelection); //Show what the computer threw.//
@@ -75,6 +91,8 @@ function game() {
     console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
 
     //3rd Round//
+        //Take player's throw.//
+    playerSelection = prompt('Round 3: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
     getComputerChoice(); //Computer throws its hand.//
     computerSelection = getComputerChoice(); //Assign computer throw to argument.//
     console.log(computerSelection); //Show what the computer threw.//
@@ -96,6 +114,8 @@ function game() {
     console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
 
     //4th Round//
+       //Take player's throw.//
+    playerSelection = prompt('Round 4: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
     getComputerChoice(); //Computer throws its hand.//
     computerSelection = getComputerChoice(); //Assign computer throw to argument.//
     console.log(computerSelection); //Show what the computer threw.//
@@ -117,6 +137,8 @@ function game() {
     console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
 
     //5th Round//
+        //Take player's throw.//
+    playerSelection = prompt('Round 5: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
     getComputerChoice(); //Computer throws its hand.//
     computerSelection = getComputerChoice(); //Assign computer throw to argument.//
     console.log(computerSelection); //Show what the computer threw.//
@@ -145,15 +167,3 @@ function game() {
         console.log('Kiss your sister, it\'s a tie.');
     }
 }
-
-const playerSelection = 'ROCK'; //Player throws rock.//
-
-//Create variable to go into winner check that accepts computer's throw.//
-let computerSelection;
-
-let roundResult; //Create variable that receives the round result.//
-
-let playerScore = 0; //Create variable to hold player's score.//
-let computerScore = 0; //Create variable to hold computer's score.//
-
-game(); //Call the function that plays a multi-round game.//
