@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Rock, Paper, Scissors</title>
 </head>
 <body>
 
-    <h1>Rock, Paper, Scissors</h1>
-    <h2>First to five points wins!</h2>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <p>AI has eclipsed the top human players in the most celebrated contests of 
+    intelligence:
+    <br>Chess, Go, and of course... ROCK, PAPER, SCISSORS.</p>
+    <p>Do you dare challenge the undefeated world champion AI,
+    <b>Omniscient Fist</b>®?</p>
+    <p>First to five points wins!</p>
+    <p>Throw...</p>
+    <div class = "buttons">
+      <button>Rock</button>
+      <button>Paper</button>
+      <button>Scissors</button>
+    </div>
+    <div class="throws">
+      <div>
+        <p>You threw:</p>  
+        <img id="player-throw">
+      </div>
+      <div>
+        <p>Omniscient Fist® threw:</p>  
+        <img id="computer-throw">
+      </div>
+    </div>
 
     <script src="javascript.js"></script>
 </body>
