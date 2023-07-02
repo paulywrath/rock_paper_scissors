@@ -1,0 +1,33 @@
+body {
+    background-color: #000;
+    color: #dba40c;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #000;
+    color: #dba40c;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 32px;
+    border: 2px solid #ef3709;
+    margin: 8px;
+}
+
+.throws {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img {
+    border-radius: 8px;
+    border: 2px solid #dba40c;
+}
