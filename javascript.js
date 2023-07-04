@@ -8,6 +8,11 @@ let roundResult; //Create variable that receives the round result.
 let playerScore = 0; //Create variable to hold player's score.
 let computerScore = 0; //Create variable to hold computer's score.
 
+const computerThrow = document.getElementById("computer-throw"); //Attach node to "computer-throw" div.
+const playerThrow = document.getElementById("player-throw"); //Attach node to "player-throw" div.
+
+const showResult = document.getElementById("show-result"); //Attach node to "show-result" div. 
+
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll('button');
 
@@ -41,13 +46,13 @@ function getComputerChoice() {
 function seeWhoWins(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
-        return `Tie! You both threw ${playerSelection}.`;
+        return 'This round is a tie!';
     } else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
     (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
     (playerSelection === 'PAPER' && computerSelection === 'ROCK')) {
-        return `You win! ${playerSelection} beats ${computerSelection}.`;
+        return 'You win this round!';
     } else {
-        return `You lose! ${computerSelection} beats ${playerSelection}.`;
+        return 'You lose this round!';
     }
 
   }
@@ -56,17 +61,26 @@ function seeWhoWins(playerSelection, computerSelection) {
 function playRound() {
     getComputerChoice(); //Computer throws its hand.
     computerSelection = getComputerChoice(); //Assign computer throw to argument.
-    console.log(computerSelection); //Show what the computer threw.
+    computerThrow.textContent = computerSelection; //Show what the computer threw.
+    playerThrow.textContent = playerSelection; //Show what the player threw.
+    seeWhoWins(playerSelection, computerSelection); //See who wins.
+    whoWon = seeWhoWins(playerSelection, computerSelection);
 
-    //See who wins.
-    seeWhoWins(playerSelection, computerSelection);
-    
     //Show the round's result to the user.
-    console.log(seeWhoWins(playerSelection, computerSelection)); 
+    showResult.textContent = whoWon; 
 
     //Assign round result to variable for following score counter.
-    roundResult = seeWhoWins(playerSelection, computerSelection); 
+    roundResult = whoWon; 
         
+    //Style winner's throw
+    playerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
+    computerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
+    if (roundResult.includes('win')) {
+        playerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
+    } else if (roundResult.includes('lose')) {
+        computerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
+    }
+
     //Add to winner's score.
     if (roundResult.includes('win')) {
         playerScore += 1;
@@ -74,7 +88,7 @@ function playRound() {
         computerScore += 1;
     }
 
-    console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+    document.getElementById("score").textContent = `The score is: \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`;
 }
 
   //Play a five round game.
