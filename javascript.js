@@ -1,16 +1,29 @@
-let playerSelection; //Create variable to take player's throw.//
+let playerSelection; //Create variable to take player's throw.
 
-//Create variable to go into winner check that accepts computer's throw.//
+//Create variable to go into winner check that accepts computer's throw.
 let computerSelection;
 
-let roundResult; //Create variable that receives the round result.//
+let roundResult; //Create variable that receives the round result.
 
-let playerScore = 0; //Create variable to hold player's score.//
-let computerScore = 0; //Create variable to hold computer's score.//
+let playerScore = 0; //Create variable to hold player's score.
+let computerScore = 0; //Create variable to hold computer's score.
 
-game(); //Call the function that plays a multi-round game.//
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
 
-//The computer opponent throws “rock,” “paper,” or “scissors” randomly.//
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    playerSelection = button.id;
+    playRound();
+  });
+});
+
+//Call the function that plays a multi-round game. game();
+
+//The computer opponent throws “rock,” “paper,” or “scissors” randomly.
 function getComputerChoice() {
     
     fist = Math.floor(Math.random() * 3);
@@ -24,10 +37,8 @@ function getComputerChoice() {
 
 }
 
-//See whose throw wins or if they’re equal.//
-function playRound(playerSelection, computerSelection) {
-
-    playerSelection = playerSelection.toUpperCase();
+//See whose throw wins or if they’re equal.
+function seeWhoWins(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         return `Tie! You both threw ${playerSelection}.`;
@@ -41,23 +52,22 @@ function playRound(playerSelection, computerSelection) {
 
   }
 
-//Play a five round game.//
-function game() {
+//Play a round.
+function playRound() {
+    getComputerChoice(); //Computer throws its hand.
+    computerSelection = getComputerChoice(); //Assign computer throw to argument.
+    console.log(computerSelection); //Show what the computer threw.
 
-    //1st Round//
-        //Take player's throw. playerSelection = prompt('Round 1: Rock, Paper, Scissors...', 'Type "rock," "paper," or "scissors" here!');
-    getComputerChoice(); //Computer throws its hand.//
-    computerSelection = getComputerChoice(); //Assign computer throw to argument.//
-    console.log(computerSelection); //Show what the computer threw.//
-    playRound(playerSelection, computerSelection); //See who wins.//
+    //See who wins.
+    seeWhoWins(playerSelection, computerSelection);
+    
+    //Show the round's result to the user.
+    console.log(seeWhoWins(playerSelection, computerSelection)); 
 
-    //Show the round's result to the user.//
-    console.log(playRound(playerSelection, computerSelection)); 
-
-    //Assign round result to variable for following score counter.//
-    roundResult = playRound(playerSelection, computerSelection); 
+    //Assign round result to variable for following score counter.
+    roundResult = seeWhoWins(playerSelection, computerSelection); 
         
-    //Add to winner's score.//
+    //Add to winner's score.
     if (roundResult.includes('win')) {
         playerScore += 1;
     } else if (roundResult.includes('lose')) {
@@ -65,6 +75,10 @@ function game() {
     }
 
     console.log(`The score is \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`);
+}
+
+  //Play a five round game.
+function game() {
 
     if (playerScore > computerScore) {
         console.log('Congratulations, you won the game!');
