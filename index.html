@@ -9,30 +9,34 @@
 </head>
 <body>
 
-    <p>AI has eclipsed the top human players in the most celebrated contests of 
-    intelligence:
-    <br>Chess, Go, and of course... ROCK, PAPER, SCISSORS.</p>
-    <p>Do you dare challenge the undefeated world champion AI,
-    <b>Omniscient Fist</b>®?</p>
-    <p>First to five points wins!</p>
-    <p>Throw...</p>
-    <div>
-      <button id="ROCK">Rock</button>
-      <button id="PAPER">Paper</button>
-      <button id="SCISSORS">Scissors</button>
+    <div id="intro">
+      <p>AI has eclipsed the top human players in the most celebrated contests of 
+      intelligence:
+      <br>Chess, Go, and of course... ROCK, PAPER, SCISSORS.</p>
+      <p>Do you dare challenge the undefeated world champion AI,
+      <b>Omniscient Fist</b>®?</p>
     </div>
-    <div class="throws">
+    <div id="game">
+      <p>First to five points wins!</p>
+      <p>Throw...</p>
       <div>
-        <p>You threw:</p>  
-        <p id="player-throw"></p>
+        <button id="ROCK">Rock</button>
+        <button id="PAPER">Paper</button>
+        <button id="SCISSORS">Scissors</button>
       </div>
-      <div>
-        <p>Omniscient Fist® threw:</p>  
-        <p id="computer-throw"></p>
+      <div class="throws">
+        <div>
+          <p>You threw:</p>  
+          <p id="player-throw"></p>
+        </div>
+        <div>
+          <p>Omniscient Fist® threw:</p>  
+          <p id="computer-throw"></p>
+        </div>
       </div>
+      <p id="show-result"></p>
+      <p id="score"></p>
     </div>
-    <p id="show-result"></p>
-    <p id="score"></p>
 
     <script src="javascript.js"></script>
 </body>
