@@ -13,6 +13,10 @@ const playerThrow = document.getElementById("player-throw"); //Attach node to "p
 
 const showResult = document.getElementById("show-result"); //Attach node to "show-result" div. 
 
+const score = document.getElementById("score"); //Attach node to "score" div.
+
+const intro = document.getElementById("intro"); //Attach node to "intro" div.
+
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll('button');
 
@@ -25,6 +29,17 @@ buttons.forEach((button) => {
     playRound();
   });
 });
+
+function gameover() {
+    if (playerScore === 5) {
+        intro.textContent = 'Unbelievable! You are the new Rock, Paper, Scissors world champion!';
+    } else if (playerScore < 4 && computerScore === 5) {
+        intro.textContent = 'You lose. You\'re brave but you never had a chance.';
+    } else if (playerScore === 4 && computerScore === 5) {
+        intro.textContent = 'You lose. Will you brag that you came close to anyone who will listen, \
+                            or will you try again?';
+    }
+}
 
 //Call the function that plays a multi-round game. game();
 
@@ -58,37 +73,43 @@ function seeWhoWins(playerSelection, computerSelection) {
   }
 
 //Play a round.
-function playRound() {
-    getComputerChoice(); //Computer throws its hand.
-    computerSelection = getComputerChoice(); //Assign computer throw to argument.
-    computerThrow.textContent = computerSelection; //Show what the computer threw.
-    playerThrow.textContent = playerSelection; //Show what the player threw.
-    seeWhoWins(playerSelection, computerSelection); //See who wins.
-    whoWon = seeWhoWins(playerSelection, computerSelection);
+function playRound() {    
+        getComputerChoice(); //Computer throws its hand.
+        computerSelection = getComputerChoice(); //Assign computer throw to argument.
+        computerThrow.textContent = computerSelection; //Show what the computer threw.
+        playerThrow.textContent = playerSelection; //Show what the player threw.
+        seeWhoWins(playerSelection, computerSelection); //See who wins.
+        whoWon = seeWhoWins(playerSelection, computerSelection);
 
-    //Show the round's result to the user.
-    showResult.textContent = whoWon; 
+        //Show the round's result to the user.
+        showResult.textContent = whoWon; 
 
-    //Assign round result to variable for following score counter.
-    roundResult = whoWon; 
-        
-    //Style winner's throw
-    playerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
-    computerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
-    if (roundResult.includes('win')) {
-        playerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
-    } else if (roundResult.includes('lose')) {
-        computerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
-    }
+        //Assign round result to variable for following score counter.
+        roundResult = whoWon; 
+            
+        //Style winner's throw
+        playerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
+        computerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
+        if (roundResult.includes('win')) {
+            playerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
+        } else if (roundResult.includes('lose')) {
+            computerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
+        }
 
-    //Add to winner's score.
-    if (roundResult.includes('win')) {
-        playerScore += 1;
-    } else if (roundResult.includes('lose')) {
-        computerScore += 1;
-    }
+        //Add to winner's score.
+        if (roundResult.includes('win')) {
+            playerScore += 1;
+        } else if (roundResult.includes('lose')) {
+            computerScore += 1;
+        }
 
-    document.getElementById("score").textContent = `The score is: \nYOU: ${playerScore} \nCOMPUTER: ${computerScore}`;
+        //Display running score.    
+        score.setAttribute('style', 'white-space: pre;');
+        score.textContent = 'The score is...\r\n' 
+        score.textContent += `You: ${playerScore}\r\n` 
+        score.textContent += `Omniscient Fist®: ${computerScore}`;
+
+        gameover();
 }
 
   //Play a five round game.
