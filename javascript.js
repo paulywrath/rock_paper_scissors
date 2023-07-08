@@ -36,16 +36,16 @@ buttons.forEach((button) => {
 function gameover() {
     if (playerScore === 5) {
         intro.textContent = '\r\nYou win the match! Unbelievable! \
-                            You are the new Rock, Paper, Scissors world champion!';
+You are the new Rock, Paper, Scissors world champion!';
     } else if (playerScore < 4 && computerScore === 5) {
         intro.textContent = '\r\nYou lose the match. You\'re brave but you never had a chance.';
     } else if (playerScore === 4 && computerScore === 5) {
         intro.textContent = '\r\nYou lose the match. Will you brag that you came close \
-                            to anyone who will listen, or will you try again?';
+to anyone who will listen, or will you try again?';
     }
     
     if (playerScore === 5 || computerScore === 5) {
-        intro.setAttribute('style', 'white-space: pre;');
+        intro.setAttribute('style', 'white-space: pre; color: white;');
         game.setAttribute('style', 'white-space: pre;');
         game.textContent = '\r\nRefresh the page to play again.';
     }
