@@ -33,15 +33,10 @@ buttons.forEach((button) => {
 
 //The computer opponent throws “rock,” “paper,” or “scissors” randomly.
 function getComputerChoice() {
-    
-    fist = Math.floor(Math.random() * 3);
-    if (fist === 0) {
-        return 'ROCK';
-    } else if (fist === 1) {
-        return 'PAPER';
-    } else {
-        return 'SCISSORS';
-    }
+
+    const choices = ['ROCK', 'PAPER', 'SCISSORS'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 
 }
 
@@ -50,9 +45,10 @@ function seeWhoWins(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         return 'This round is a tie!';
-    } else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
-    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
-    (playerSelection === 'PAPER' && computerSelection === 'ROCK')) {
+    } else if (
+        (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
+        (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
+        (playerSelection === 'PAPER' && computerSelection === 'ROCK')) {
         return 'You win this round!';
     } else {
         return 'You lose this round!';
@@ -82,16 +78,12 @@ to anyone who will listen, or will you try again?';
  
 //Play a round.
 function playRound() {    
-        getComputerChoice(); //Computer throws its hand.
         computerSelection = getComputerChoice(); //Assign computer throw to argument.
         computerThrow.textContent = computerSelection; //Show what the computer threw.
         playerThrow.textContent = playerSelection; //Show what the player threw.
-        seeWhoWins(playerSelection, computerSelection); //See who wins.
-            //Assign round result to variable for following score counter.
-        roundResult = seeWhoWins(playerSelection, computerSelection); 
+        roundResult = seeWhoWins(playerSelection, computerSelection); //See who wins.
 
-        //Show the round's result to the user.
-        showResult.textContent = roundResult; 
+        showResult.textContent = roundResult; //Show the round's result to the user.
             
         //Style winner's throw
         playerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
