@@ -17,6 +17,8 @@ const score = document.getElementById("score"); //Attach node to "score" div.
 
 const intro = document.getElementById("intro"); //Attach node to "intro" div.
 
+const game = document.getElementById("game"); //Attach node to "game" div.
+
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll('button');
 
@@ -26,18 +28,26 @@ buttons.forEach((button) => {
   // and for each one we add a 'click' listener
   button.addEventListener('click', () => {
     playerSelection = button.id;
+    intro.textContent = '';
     playRound();
   });
 });
 
 function gameover() {
     if (playerScore === 5) {
-        intro.textContent = 'Unbelievable! You are the new Rock, Paper, Scissors world champion!';
+        intro.textContent = '\r\nYou win the match! Unbelievable! \
+                            You are the new Rock, Paper, Scissors world champion!';
     } else if (playerScore < 4 && computerScore === 5) {
-        intro.textContent = 'You lose. You\'re brave but you never had a chance.';
+        intro.textContent = '\r\nYou lose the match. You\'re brave but you never had a chance.';
     } else if (playerScore === 4 && computerScore === 5) {
-        intro.textContent = 'You lose. Will you brag that you came close to anyone who will listen, \
-                            or will you try again?';
+        intro.textContent = '\r\nYou lose the match. Will you brag that you came close \
+                            to anyone who will listen, or will you try again?';
+    }
+    
+    if (playerScore === 5 || computerScore === 5) {
+        intro.setAttribute('style', 'white-space: pre;');
+        game.setAttribute('style', 'white-space: pre;');
+        game.textContent = '\r\nRefresh the page to play again.';
     }
 }
 
@@ -112,7 +122,7 @@ function playRound() {
         gameover();
 }
 
-  //Play a five round game.
+  /*Play a five round game.
 function game() {
 
     if (playerScore > computerScore) {
@@ -122,4 +132,4 @@ function game() {
     } else {
         console.log('Kiss your sister, it\'s a tie.');
     }
-}
+}*/
