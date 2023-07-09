@@ -5,6 +5,8 @@ let computerSelection;
 
 let roundResult; //Create variable that receives the round result.
 
+let roundCounter = 0; //Create variable that counts the round.
+
 let playerScore = 0; //Create variable to hold player's score.
 let computerScore = 0; //Create variable to hold computer's score.
 
@@ -16,6 +18,8 @@ const playerThrow = document.getElementById("player-throw"); //Attach node to "p
 const computerThrow = document.getElementById("computer-throw"); //Attach node to "computer-throw" div.
 
 const showResult = document.getElementById("show-result"); //Attach node to "show-result" div. 
+
+const round = document.getElementById("round"); //Attach node to "round" div.
 
 const score = document.getElementById("score"); //Attach node to "score" div.
 
@@ -81,10 +85,13 @@ function playRound() {
         computerSelection = getComputerChoice(); //Assign computer throw to argument.
         computerThrow.textContent = computerSelection; //Show what the computer threw.
         playerThrow.textContent = playerSelection; //Show what the player threw.
-        roundResult = seeWhoWins(playerSelection, computerSelection); //See who wins.
-
-        showResult.textContent = roundResult; //Show the round's result to the user.
+        roundResult = seeWhoWins(playerSelection, computerSelection); //See who wins..
             
+        //Display round.
+        roundCounter += 1;
+        round.textContent = `Round ${roundCounter}`
+        round.style.cssText = 'text-decoration: underline;';
+
         //Style winner's throw
         playerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
         computerThrow.style.cssText = 'font-weight: normal; text-decoration: none;';
@@ -94,12 +101,14 @@ function playRound() {
             computerThrow.style.cssText = 'color: white; font-weight: bold; text-decoration: underline;'; 
         }
 
+        showResult.textContent = roundResult; //Show the round's result to the user
+
         //Add to winner's score.
         if (roundResult.includes('win')) {
             playerScore += 1;
         } else if (roundResult.includes('lose')) {
             computerScore += 1;
-        }
+        } 
 
         //Display running score.    
         score.setAttribute('style', 'white-space: pre;');
