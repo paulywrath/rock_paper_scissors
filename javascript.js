@@ -64,13 +64,15 @@ function seeWhoWins(playerSelection, computerSelection) {
 function gameover() {
 
     if (playerScore === 5) {
-        intro.textContent = '\r\nYou win the match! Unbelievable! \
-You are the new Rock, Paper, Scissors world champion!';
+        intro.textContent = '\r\nYou win the match! Unbelievable!\
+\r\nYou are the new Rock, Paper, Scissors world champion!';
     } else if (playerScore < 4 && computerScore === 5) {
-        intro.textContent = '\r\nYou lose the match. You\'re brave but you never had a chance.';
+        intro.textContent = '\r\nYou lose the match.\
+\r\nYou\'re brave but you never had a chance.';
     } else if (playerScore === 4 && computerScore === 5) {
-        intro.textContent = '\r\nYou lose the match. Will you brag that you came close \
-to anyone who will listen, or will you try again?';
+        intro.textContent = '\r\nYou lose the match.\
+\r\nWill you brag that you came close to anyone who will listen,\
+\r\nor will you try again?';
     }
     
     if (playerScore === 5 || computerScore === 5) {
@@ -113,8 +115,8 @@ function playRound() {
         //Display running score.    
         score.setAttribute('style', 'white-space: pre;');
         score.textContent = 'The score is...\r\n' 
-        score.textContent += `You: ${playerScore}\r\n` 
-        score.textContent += `Omniscient Fist®: ${computerScore}`;
+        score.textContent += `\r\nYou: ${playerScore}\r\n` 
+        score.textContent += `\r\nOmniscient Fist®: ${computerScore}`;
 
         // Check if anyone has 5 points.
         gameover();
