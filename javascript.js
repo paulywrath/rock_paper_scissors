@@ -84,7 +84,18 @@ function gameover() {
  
 //Play a round.
 function playRound() {    
-        computerSelection = getComputerChoice(); //Assign computer throw to argument.
+        if (playerScore < 4) {
+            computerSelection = getComputerChoice(); //Assign computer throw to argument.
+        } else { //World's greatest rock, paper, scissors AI coded here.
+            if (playerSelection === 'ROCK') {
+                computerSelection = 'PAPER';
+            } else if (playerSelection === 'SCISSORS') {
+                computerSelection = 'ROCK';
+            } else if (playerSelection === 'PAPER') {
+                computerSelection = 'SCISSORS';
+            }
+        }
+        
         computerThrow.textContent = computerSelection; //Show what the computer threw.
         playerThrow.textContent = playerSelection; //Show what the player threw.
         roundResult = seeWhoWins(playerSelection, computerSelection); //See who wins..
