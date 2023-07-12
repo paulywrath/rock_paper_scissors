@@ -23,6 +23,8 @@ const round = document.getElementById("round"); //Attach node to "round" div.
 
 const score = document.getElementById("score"); //Attach node to "score" div.
 
+const playAgain = document.createElement('button');
+
 // Attach node to buttons element. It is a node list of the buttons, which acts much like an array.
 const buttons = document.querySelectorAll('button');
 
@@ -77,11 +79,17 @@ function gameover() {
     
     if (playerScore === 5 || computerScore === 5) {
         intro.setAttribute('style', 'white-space: pre; color: white;');
-        game.setAttribute('style', 'white-space: pre; color: white;');
-        game.textContent = '\r\nRefresh the page to play again.';
+        //game.setAttribute('style', 'white-space: pre; color: white;');
+        game.textContent = '';
+        game.appendChild(playAgain);
+        playAgain.textContent = 'Play Again?';
     }
 }
- 
+
+playAgain.addEventListener('click', () => {
+    window.location.reload();
+  });
+
 //Play a round.
 function playRound() {    
         if (playerScore < 4) {
