@@ -79,15 +79,15 @@ function gameover() {
     
     if (playerScore === 5 || computerScore === 5) {
         intro.setAttribute('style', 'white-space: pre; color: white;');
-        //game.setAttribute('style', 'white-space: pre; color: white;');
         game.textContent = '';
         game.appendChild(playAgain);
         playAgain.textContent = 'Play Again?';
     }
 }
 
+//The "play again" button takes you back to the intro state.
 playAgain.addEventListener('click', () => {
-    window.location.reload();
+    location = "index.html";
   });
 
 //Play a round.
